@@ -22,14 +22,22 @@
  * For more details, see https://docs.gradle.org/8.0.1/userguide/java_library_plugin.html#sec:java_library_configurations_graph
  */
 
-def shortVersion = minecraftVersion.substring(0, minecraftVersion.lastIndexOf("."))
-def strippedVersion = shortVersion.replace(".", "") + "0"
+//    cclVersion=3.2.3.358
+//    chickenasmVersion=1.0.2.9
+//    forestryVersion=5.8.2.387
+//    crafttweakerVersion=1.12-4.1.9.6
+//    ctmVersion=1.0.2.31
+//def shortVersion = minecraftVersion.substring(0, minecraftVersion.lastIndexOf("."))
+//def strippedVersion = shortVersion.replace(".", "") + "0"
 
 dependencies {
-    compileOnly rfg.deobf("net.sengir.forestry:forestry_{minecraftVersion}:{forestryVersion}")
+    implementation rfg.deobf('curse.maven:forestry-59751:2684780')
+    implementation rfg.deobf('curse.maven:codechicken-lib-1-8-242818:2779848')
+//    implementation rfg.deobf('curse.maven:crafttweaker-239197:2576160')
+    implementation rfg.deobf('curse.maven:ctm-267602:2915363')
 
-    implementation rfg.deobf("codechicken:ChickenASM:{shortVersion}-{chickenasmVersion}")
-    implementation rfg.deobf("codechicken-lib-1-8:CodeChickenLib-{minecraftVersion}:{cclVersion}:universal")
-    implementation rfg.deobf("CraftTweaker2:CraftTweaker2-MC{strippedVersion}-Main:{crafttweakerVersion}")
-    implementation rfg.deobf("team.chisel.ctm:CTM:MC{minecraftVersion}-{ctmVersion}")
+//    implementation rfg.deobf('codechicken:ChickenASM:{shortVersion}-{chickenasmVersion}')
+//    implementation rfg.deobf('codechicken-lib-1-8:CodeChickenLib-{minecraftVersion}:{cclVersion}:universal')
+    implementation rfg.deobf('CraftTweaker2:CraftTweaker2-MC1120-Main:1.12-4.1.9.6')
+//    implementation rfg.deobf('team.chisel.ctm:CTM:MC{minecraftVersion}-{ctmVersion}')
 }
